@@ -16,8 +16,8 @@
 package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.TypeFragment;
-import com.tmtron.java.union.internal.gen.Util;
+import com.tmtron.java.union.internal.gen.shared.TypeFragment;
+import com.tmtron.java.union.internal.gen.shared.Util;
 
 class ClassTypeVariables extends TypeFragment {
 

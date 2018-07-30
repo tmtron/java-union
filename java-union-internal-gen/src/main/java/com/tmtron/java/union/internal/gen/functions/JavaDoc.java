@@ -16,9 +16,9 @@
 package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.TypeFragment;
+import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 
-import static com.tmtron.java.union.internal.gen.Util.RESULT_TYPE_VARIABLE;
+import static com.tmtron.java.union.internal.gen.shared.Util.RESULT_TYPE_VARIABLE;
 
 class JavaDoc extends TypeFragment {
 

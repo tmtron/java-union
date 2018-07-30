@@ -17,11 +17,11 @@ package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.TypeFragment;
+import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 
 import javax.lang.model.element.Modifier;
 
-import static com.tmtron.java.union.internal.gen.Util.RESULT_TYPE_VARIABLE;
+import static com.tmtron.java.union.internal.gen.shared.Util.RESULT_TYPE_VARIABLE;
 
 class ApplyMethod extends TypeFragment {
 
