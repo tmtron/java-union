@@ -19,6 +19,7 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
+import com.tmtron.java.union.internal.gen.TypeFragment;
 
 import java.io.IOException;
 import java.nio.file.Files;

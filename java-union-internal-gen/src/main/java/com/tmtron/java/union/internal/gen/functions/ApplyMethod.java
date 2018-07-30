@@ -16,8 +16,8 @@
 package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
+import com.tmtron.java.union.internal.gen.TypeFragment;
 
 import javax.lang.model.element.Modifier;
 
@@ -33,16 +33,16 @@ class ApplyMethod extends TypeFragment {
     }
 
     @Override
-    void prepare() {
-        if (config.noOfFunctionParams == 1) {
+    public void prepare() {
+        if (config.getNoOfFunctionParams() == 1) {
             javaDoc.append(" based on the input parameter");
-        } else if (config.noOfFunctionParams > 1) {
+        } else if (config.getNoOfFunctionParams() > 1) {
             javaDoc.append(" based on the input parameters");
         }
     }
 
     @Override
-    void work(int parameterOneBased, final TypeVariableName typeVariableName) {
+    public void work(int parameterOneBased, final TypeVariableName typeVariableName) {
         final String paramName = "p"+parameterOneBased;
         javaDoc.append("\n@param ");
         javaDoc.append(paramName);
@@ -53,10 +53,10 @@ class ApplyMethod extends TypeFragment {
     }
 
     @Override
-    void finish() {
+    public void finish() {
         javaDoc.append("\n@return the result value");
 
-        if (config.throwsException) {
+        if (config.isThrowsException()) {
             javaDoc.append("\n@throws Exception on error");
 
             methodSpec.addException(Exception.class);
@@ -66,6 +66,6 @@ class ApplyMethod extends TypeFragment {
         methodSpec.addJavadoc(javaDoc.toString());
         methodSpec.returns(RESULT_TYPE_VARIABLE)
                 .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT);
-        config.builder.addMethod(methodSpec.build());
+        config.getBuilder().addMethod(methodSpec.build());
     }
 }

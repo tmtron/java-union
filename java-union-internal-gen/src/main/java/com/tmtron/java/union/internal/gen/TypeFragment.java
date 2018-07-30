@@ -13,32 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.functions;
+package com.tmtron.java.union.internal.gen;
 
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
-abstract class TypeFragment {
+public abstract class TypeFragment {
 
-    static class Config {
-        final TypeSpec.Builder builder;
-        final int noOfFunctionParams;
-        final boolean throwsException;
+    public static class Config {
+        private final TypeSpec.Builder builder;
+        private final int noOfFunctionParams;
+        private final boolean throwsException;
 
-        Config(final TypeSpec.Builder builder, final int noOfFunctionParams, final boolean throwsException) {
+        public Config(final TypeSpec.Builder builder, final int noOfFunctionParams, final boolean throwsException) {
             this.builder = builder;
             this.noOfFunctionParams = noOfFunctionParams;
             this.throwsException = throwsException;
         }
+
+        public TypeSpec.Builder getBuilder() {
+            return builder;
+        }
+
+        public int getNoOfFunctionParams() {
+            return noOfFunctionParams;
+        }
+
+        public boolean isThrowsException() {
+            return throwsException;
+        }
     }
 
-    final Config config;
+    protected final Config config;
 
-    TypeFragment(final Config config) {
+    protected TypeFragment(final Config config) {
         this.config = config;
     }
 
-    void prepare() {}
-    abstract void work(int parameterOneBased, TypeVariableName typeVariableName);
-    abstract void finish();
+    public void prepare() {}
+    public abstract void work(int parameterOneBased, TypeVariableName typeVariableName);
+    public abstract void finish();
 }
