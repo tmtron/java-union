@@ -1,5 +1,12 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0"
+    }
+}
+
 plugins {
     id 'java'
+    id "com.github.hierynomus.license" version "0.14.0"
 }
 
 group 'com.tmtron.java-union'
@@ -9,6 +16,16 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+
+license {
+    header rootProject.file('LICENSE_HEADER')
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+    ext.year = Calendar.getInstance().get(Calendar.YEAR)
 }
 
 dependencies {

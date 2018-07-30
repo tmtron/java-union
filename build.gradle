@@ -1,7 +1,28 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0"
+    }
+}
+
 allprojects {
     group 'com.tmtron.java-union'
     version '1.0-SNAPSHOT'
     description 'Annotation processor that builds a java union type'
+
+    apply plugin: "com.github.hierynomus.license"
+    license {
+        header rootProject.file('LICENSE_HEADER')
+        strictCheck true
+        mapping {
+            java = 'SLASHSTAR_STYLE'
+        }
+        ext.year = Calendar.getInstance().get(Calendar.YEAR)
+    }
 }
 
 subprojects {
@@ -21,5 +42,4 @@ subprojects {
 
         testCompile group: 'junit', name: 'junit', version: '4.12'
     }
-
 }

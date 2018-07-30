@@ -1,3 +1,18 @@
+/*
+ * Copyright © 2018 Martin Trummer (martin.trummer@tmtron.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.ClassName;
@@ -6,11 +21,16 @@ import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.lang.model.element.Modifier;
 
@@ -45,8 +65,19 @@ public class GenFunctions {
     private void writeFunctionFile() throws IOException {
         JavaFile.builder(PACKAGE_NAME, getFunctionFileSpec())
                 .skipJavaLangImports(true)
+                .addFileComment(getFileComment())
                 .build()
                 .writeTo(outputDir);
+    }
+
+    private String getFileComment() throws IOException {
+        final String copyrightYear = new SimpleDateFormat("yyyy").format(new Date());
+        final String currentDir = System.getProperty("user.dir");
+        Path rootDir = Paths.get(currentDir, "LICENSE_HEADER");
+        List<String> licenseHeaderTemplate = Files.readAllLines(rootDir);
+        return licenseHeaderTemplate.stream()
+                .map(raw -> raw.replace("${year}", copyrightYear))
+                .collect(Collectors.joining("\n"));
     }
 
     private TypeSpec getFunctionFileSpec() {
