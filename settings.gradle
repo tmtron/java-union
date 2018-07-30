@@ -1,0 +1,3 @@
+rootProject.name = 'java-union'
+include 'java-union-lib'
+
