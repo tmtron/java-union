@@ -21,7 +21,7 @@ import com.tmtron.java.union.internal.gen.TypeFragment;
 
 import javax.lang.model.element.Modifier;
 
-import static com.tmtron.java.union.internal.gen.functions.Util.RESULT_TYPE_VARIABLE;
+import static com.tmtron.java.union.internal.gen.Util.RESULT_TYPE_VARIABLE;
 
 class ApplyMethod extends TypeFragment {
 

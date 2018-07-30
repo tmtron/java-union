@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.functions;
+package com.tmtron.java.union.internal.gen;
 
 import com.squareup.javapoet.TypeVariableName;
 
-class Util {
-    static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
+public class Util {
+    public static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
 }
