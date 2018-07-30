@@ -34,7 +34,7 @@ public class Main {
             for (int i = 0; i <= 1; i++) {
                 boolean throwsException = i == 0;
                 GenFunctions genFunctions = new GenFunctions(outputDir, throwsException);
-                genFunctions.writeFunctionFiles();
+                genFunctions.writeFiles();
 
 
 

@@ -18,5 +18,7 @@ package com.tmtron.java.union.internal.gen;
 import com.squareup.javapoet.TypeVariableName;
 
 public class Util {
+
+    public static final String ROOT_PACKAGE_NAME = "com.tmtron.java.union.lib";
     public static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
 }
