@@ -16,9 +16,11 @@
 package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 
+import javax.annotation.CheckReturnValue;
 import javax.lang.model.element.Modifier;
 
 import static com.tmtron.java.union.internal.gen.shared.Util.RESULT_TYPE_VARIABLE;
@@ -50,23 +52,25 @@ class ApplyMethod extends TypeFragment {
         javaDoc.append(parameterOneBased);
 
         final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
-        methodSpec.addParameter(typeVariableName, paramName);
+
+        ParameterSpec.Builder paramBuilder = ParameterSpec.builder(typeVariableName, paramName);
+        addNullAnnotation(paramBuilder);
+        methodSpec.addParameter(paramBuilder.build());
     }
 
     @Override
     public void finish() {
         javaDoc.append("\n@return the result value");
+        javaDoc.append("\n@throws Exception on error");
 
-        if (config.isThrowsException()) {
-            javaDoc.append("\n@throws Exception on error");
-
-            methodSpec.addException(Exception.class);
-        }
+        methodSpec.addException(Exception.class);
         javaDoc.append("\n");
 
         methodSpec.addJavadoc(javaDoc.toString());
+        methodSpec.addAnnotation(CheckReturnValue.class);
         methodSpec.returns(RESULT_TYPE_VARIABLE)
-                .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT);
+                .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)
+                .addAnnotation(config.getNullAnnotationClass());
         config.getBuilder().addMethod(methodSpec.build());
     }
 }

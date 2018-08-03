@@ -33,14 +33,15 @@ public class GenFactories extends FileWriter {
     private final List<TypeFragment> fragments = new ArrayList<>();
     private final GenUnions genUnions;
 
-    public GenFactories(final Path outputDir, final boolean throwsException, final GenUnions genUnions) {
-        super(outputDir, throwsException, Util.ROOT_PACKAGE_NAME, Util.MIN_INDEX_FOR_UNIONS);
+    public GenFactories(final Path outputDir, final boolean isNullable, final GenUnions genUnions) {
+        super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME+".factories", Util.MIN_INDEX_FOR_UNIONS);
         this.genUnions = genUnions;
     }
 
     @Override
-    protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean throwsException) {
-        final String classNameStr = "Union" + noOfTypeVariables + "Factory";
+    protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean isNullable) {
+        final String classNameStr =
+                "Union" + noOfTypeVariables + "Factory" + getNullableIdentifierNameOrBlank(isNullable);
 
         ClassName className = ClassName.get(packageName, classNameStr);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.interfaceBuilder(className)
@@ -64,7 +65,7 @@ public class GenFactories extends FileWriter {
 
     private void initFragments(final TypeSpec.Builder result, int currentParam) {
         fragments.clear();
-        final TypeFragment.Config config = new TypeFragment.Config(result, currentParam, throwsException);
+        final TypeFragment.Config config = new TypeFragment.Config(result, currentParam, isNullable);
 
         fragments.add(new JavaDoc(config));
         fragments.add(new ClassTypeVariables(config));

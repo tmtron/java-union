@@ -35,8 +35,8 @@ public class GenFunctions extends FileWriter {
     private final List<TypeFragment> fragments = new ArrayList<>();
     private final Map<Integer, TypeSpec> generatedClasses = new HashMap<>();
 
-    public GenFunctions(final Path outputDir, final boolean throwsException) {
-        super(outputDir, throwsException, Util.ROOT_PACKAGE_NAME + ".functions", 0);
+    public GenFunctions(final Path outputDir, final boolean isNullable) {
+        super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME + ".functions", 0);
     }
 
     public TypeSpec getGeneratedClass(int noOfTypeVariables) {
@@ -45,13 +45,8 @@ public class GenFunctions extends FileWriter {
     }
 
     @Override
-    protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean throwsException) {
-        final String classNameStr;
-        if (throwsException) {
-            classNameStr = "FunctionEx" + noOfTypeVariables;
-        } else {
-            classNameStr = "Function" + noOfTypeVariables;
-        }
+    protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean isNullable) {
+        final String classNameStr = "Function" + noOfTypeVariables + getNullableIdentifierNameOrBlank(isNullable);
 
         ClassName className = ClassName.get(packageName, classNameStr);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.interfaceBuilder(className)
@@ -69,7 +64,6 @@ public class GenFunctions extends FileWriter {
         fragments.forEach(TypeFragment::prepare);
         fragments.forEach(fragment -> {
                     for (int i = 1; i < currentParam+1; i++) {
-                        TypeVariableName typeVariableName = TypeVariableName.get("T" + i);
                         fragment.work(i);
                     }
         });
@@ -78,7 +72,7 @@ public class GenFunctions extends FileWriter {
 
     private void initFragments(final TypeSpec.Builder result, int currentParam) {
         fragments.clear();
-        final TypeFragment.Config config = new TypeFragment.Config(result, currentParam, throwsException);
+        final TypeFragment.Config config = new TypeFragment.Config(result, currentParam, isNullable);
 
         fragments.add(new ClassTypeVariables(config));
         fragments.add(new JavaDoc(config));

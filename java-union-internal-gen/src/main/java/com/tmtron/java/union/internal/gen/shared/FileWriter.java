@@ -32,15 +32,15 @@ public abstract class FileWriter {
     protected final String packageName;
     private final int minIndex;
     private final Path outputDir;
-    protected final boolean throwsException;
+    protected final boolean isNullable;
     private boolean filesWritten;
 
-    public FileWriter(final Path outputDir, final boolean throwsException, final String packageName
+    public FileWriter(final Path outputDir, final boolean isNullable, final String packageName
             , int minIndex) {
         if (minIndex < 0 || minIndex > 9) throw new RuntimeException("invalid minIndex");
 
         this.outputDir = outputDir;
-        this.throwsException = throwsException;
+        this.isNullable = isNullable;
         this.packageName = packageName;
         this.minIndex = minIndex;
         this.filesWritten = false;
@@ -55,7 +55,7 @@ public abstract class FileWriter {
     }
 
     private void writeFile(int currentParam) throws IOException {
-        JavaFile.builder(packageName, getFunctionFileSpec(currentParam, throwsException))
+        JavaFile.builder(packageName, getFunctionFileSpec(currentParam, isNullable))
                 .skipJavaLangImports(true)
                 .addFileComment(getFileHeader())
                 .build()
@@ -75,5 +75,9 @@ public abstract class FileWriter {
                 .collect(Collectors.joining("\n"));
     }
 
-    protected abstract TypeSpec getFunctionFileSpec(int currentParam, boolean throwsException);
+    protected String getNullableIdentifierNameOrBlank(final boolean isNullable) {
+        return (isNullable) ? "Nullable" : "";
+    }
+
+    protected abstract TypeSpec getFunctionFileSpec(int currentParam, boolean isNullable);
 }

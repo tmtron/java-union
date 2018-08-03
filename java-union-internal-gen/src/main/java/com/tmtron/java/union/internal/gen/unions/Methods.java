@@ -15,10 +15,14 @@
  */
 package com.tmtron.java.union.internal.gen.unions;
 
+import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterSpec;
+import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
+import com.tmtron.java.union.lib.consumers.Consumer;
+import com.tmtron.java.union.lib.consumers.ConsumerNullable;
 
 import javax.annotation.Nullable;
 import javax.lang.model.element.Modifier;
@@ -42,11 +46,13 @@ class Methods extends TypeFragment {
         javaDoc.append(" will be executed when it is not null and the value is of type ");
         javaDoc.append(parameterOneBased);
 
-        // TODO: add nullable annotations!
-        ParameterSpec.Builder paramBuilder = ParameterSpec.builder(typeVariableName, paramName)
-                .addAnnotation(Nullable.class);
+        final Class<?> consumerClass = config.isNullable() ? ConsumerNullable.class : Consumer.class;
+        final ClassName consumerClassName = ClassName.get(consumerClass);
+        // e.g. Consumer<T1>
+        final ParameterizedTypeName paramTypeName = ParameterizedTypeName.get(consumerClassName, typeVariableName);
+        final ParameterSpec.Builder paramBuilder = ParameterSpec.builder(paramTypeName, paramName);
+        paramBuilder.addAnnotation(Nullable.class);
         executeSpec.addParameter(paramBuilder.build());
-
     }
 
     @Override

@@ -33,15 +33,15 @@ public class Main {
         Path outputDir = Paths.get(currentDir, "build", "generated", "unions");
 
         try {
-            GenFunctions genFunctions = null;
             for (int i = 0; i <= 1; i++) {
-                boolean throwsException = i == 0;
-                genFunctions = new GenFunctions(outputDir, throwsException);
+                boolean isNullable = i == 0;
+                final GenFunctions genFunctions = new GenFunctions(outputDir, isNullable);
                 genFunctions.writeFiles();
+
+                final GenUnions genUnions = new GenUnions(outputDir, isNullable, genFunctions);
+                genUnions.writeFiles();
+                new GenFactories(outputDir, isNullable, genUnions).writeFiles();
             }
-            GenUnions genUnions = new GenUnions(outputDir, true, genFunctions);
-            genUnions.writeFiles();
-            new GenFactories(outputDir, true, genUnions).writeFiles();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("FAILED TO WRITE FILE");

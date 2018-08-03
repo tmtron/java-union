@@ -15,24 +15,28 @@
  */
 package com.tmtron.java.union.internal.gen.shared;
 
+import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 public abstract class TypeFragment {
 
     public static class Config {
         private final TypeSpec.Builder builder;
         private final int noOfTypeVariables;
-        private final boolean throwsException;
+        private final boolean isNullable;
         private final TypeVariableName[] typeVariableArray;
 
-        public Config(final TypeSpec.Builder builder, final int noOfTypeVariables, final boolean throwsException) {
+        public Config(final TypeSpec.Builder builder, final int noOfTypeVariables, final boolean isNullable) {
             this.builder = builder;
             this.noOfTypeVariables = noOfTypeVariables;
-            this.throwsException = throwsException;
+            this.isNullable = isNullable;
             typeVariableArray = initTypeVariables();
         }
 
@@ -53,8 +57,12 @@ public abstract class TypeFragment {
             return noOfTypeVariables;
         }
 
-        public boolean isThrowsException() {
-            return throwsException;
+        public boolean isNullable() {
+            return isNullable;
+        }
+
+        public Class<?> getNullAnnotationClass() {
+            return isNullable ? Nullable.class : Nonnull.class;
         }
 
         public TypeVariableName[] getTypeVarArray() {
@@ -75,6 +83,10 @@ public abstract class TypeFragment {
     public void prepare() {}
 
     public abstract void work(int parameterOneBased);
+
+    protected void addNullAnnotation(final ParameterSpec.Builder paramBuilder) {
+        paramBuilder.addAnnotation(config.getNullAnnotationClass());
+    }
 
     public void finish() {
     }
