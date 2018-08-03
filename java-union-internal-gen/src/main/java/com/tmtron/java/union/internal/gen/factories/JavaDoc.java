@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.functions;
+package com.tmtron.java.union.internal.gen.factories;
 
 import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
-
-import static com.tmtron.java.union.internal.gen.shared.Util.RESULT_TYPE_VARIABLE;
 
 class JavaDoc extends TypeFragment {
 
@@ -30,7 +28,8 @@ class JavaDoc extends TypeFragment {
 
     @Override
     public void prepare() {
-        javaDoc.append("A functional interface (callback) that returns a value.");
+        javaDoc.append("Factory to create instances of Union");
+        javaDoc.append(config.getNoOfTypeVariables());
     }
 
     @Override
@@ -38,17 +37,13 @@ class JavaDoc extends TypeFragment {
         final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
         javaDoc.append("\n@param <");
         javaDoc.append(typeVariableName.name);
-        javaDoc.append("> the value type element ");
+        javaDoc.append("> type of element ");
         javaDoc.append(parameterOneBased);
     }
 
     @Override
     public void finish() {
-        javaDoc.append("\n@param <");
-        javaDoc.append(RESULT_TYPE_VARIABLE.name);
-        javaDoc.append("> the result type");
         javaDoc.append("\n");
-
         config.getBuilder().addJavadoc(javaDoc.toString());
     }
 }

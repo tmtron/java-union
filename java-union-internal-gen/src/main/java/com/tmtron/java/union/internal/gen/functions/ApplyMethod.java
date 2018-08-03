@@ -34,21 +34,22 @@ class ApplyMethod extends TypeFragment {
 
     @Override
     public void prepare() {
-        if (config.getNoOfFunctionParams() == 1) {
+        if (config.getNoOfTypeVariables() == 1) {
             javaDoc.append(" based on the input parameter");
-        } else if (config.getNoOfFunctionParams() > 1) {
+        } else if (config.getNoOfTypeVariables() > 1) {
             javaDoc.append(" based on the input parameters");
         }
     }
 
     @Override
-    public void work(int parameterOneBased, final TypeVariableName typeVariableName) {
+    public void work(int parameterOneBased) {
         final String paramName = "p"+parameterOneBased;
         javaDoc.append("\n@param ");
         javaDoc.append(paramName);
         javaDoc.append(" parameter ");
         javaDoc.append(parameterOneBased);
 
+        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
         methodSpec.addParameter(typeVariableName, paramName);
     }
 

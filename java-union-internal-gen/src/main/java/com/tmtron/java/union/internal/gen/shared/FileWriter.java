@@ -30,20 +30,25 @@ import java.util.stream.Collectors;
 public abstract class FileWriter {
 
     protected final String packageName;
+    private final int minIndex;
     private final Path outputDir;
     protected final boolean throwsException;
     private boolean filesWritten;
 
-    public FileWriter(final Path outputDir, final boolean throwsException, final String packageName) {
+    public FileWriter(final Path outputDir, final boolean throwsException, final String packageName
+            , int minIndex) {
+        if (minIndex < 0 || minIndex > 9) throw new RuntimeException("invalid minIndex");
+
         this.outputDir = outputDir;
         this.throwsException = throwsException;
         this.packageName = packageName;
+        this.minIndex = minIndex;
         this.filesWritten = false;
     }
 
     public void writeFiles() throws IOException {
         if (filesWritten) throw new RuntimeException("files have already been written!");
-        for (int i = 0; i <= 9; i++) {
+        for (int i = minIndex; i <= 9; i++) {
             writeFile(i);
         }
         filesWritten = true;
@@ -52,16 +57,19 @@ public abstract class FileWriter {
     private void writeFile(int currentParam) throws IOException {
         JavaFile.builder(packageName, getFunctionFileSpec(currentParam, throwsException))
                 .skipJavaLangImports(true)
-                .addFileComment(getFileComment())
+                .addFileComment(getFileHeader())
                 .build()
                 .writeTo(outputDir);
     }
 
-    private String getFileComment() throws IOException {
+    private String getFileHeader() throws IOException {
         final String copyrightYear = new SimpleDateFormat("yyyy").format(new Date());
         final String currentDir = System.getProperty("user.dir");
         Path rootDir = Paths.get(currentDir, "LICENSE_HEADER");
         List<String> licenseHeaderTemplate = Files.readAllLines(rootDir);
+        // add empty line before and after the header, so that the check of the license gradle plugin works
+        licenseHeaderTemplate.add(0, "");
+        licenseHeaderTemplate.add("");
         return licenseHeaderTemplate.stream()
                 .map(raw -> raw.replace("${year}", copyrightYear))
                 .collect(Collectors.joining("\n"));

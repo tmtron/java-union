@@ -15,7 +15,9 @@
  */
 package com.tmtron.java.union.internal.gen;
 
+import com.tmtron.java.union.internal.gen.factories.GenFactories;
 import com.tmtron.java.union.internal.gen.functions.GenFunctions;
+import com.tmtron.java.union.internal.gen.unions.GenUnions;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -28,18 +30,18 @@ public class Main {
         System.out.println("starting..");
 
         final String currentDir = System.getProperty("user.dir");
-        Path outputDir = Paths.get(currentDir, "build", "generated");
+        Path outputDir = Paths.get(currentDir, "build", "generated", "unions");
 
         try {
+            GenFunctions genFunctions = null;
             for (int i = 0; i <= 1; i++) {
                 boolean throwsException = i == 0;
-                GenFunctions genFunctions = new GenFunctions(outputDir, throwsException);
+                genFunctions = new GenFunctions(outputDir, throwsException);
                 genFunctions.writeFiles();
-
-
-
-
             }
+            GenUnions genUnions = new GenUnions(outputDir, true, genFunctions);
+            genUnions.writeFiles();
+            new GenFactories(outputDir, true, genUnions).writeFiles();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("FAILED TO WRITE FILE");

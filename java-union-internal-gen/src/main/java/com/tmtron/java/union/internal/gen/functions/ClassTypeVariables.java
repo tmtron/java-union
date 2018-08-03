@@ -26,7 +26,8 @@ class ClassTypeVariables extends TypeFragment {
     }
 
     @Override
-    public void work(int parameterOneBased, final TypeVariableName typeVariableName) {
+    public void work(int parameterOneBased) {
+        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
         config.getBuilder().addTypeVariable(typeVariableName);
     }
 

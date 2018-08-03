@@ -18,29 +18,51 @@ package com.tmtron.java.union.internal.gen.shared;
 import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.TypeVariableName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class TypeFragment {
 
     public static class Config {
         private final TypeSpec.Builder builder;
-        private final int noOfFunctionParams;
+        private final int noOfTypeVariables;
         private final boolean throwsException;
+        private final TypeVariableName[] typeVariableArray;
 
-        public Config(final TypeSpec.Builder builder, final int noOfFunctionParams, final boolean throwsException) {
+        public Config(final TypeSpec.Builder builder, final int noOfTypeVariables, final boolean throwsException) {
             this.builder = builder;
-            this.noOfFunctionParams = noOfFunctionParams;
+            this.noOfTypeVariables = noOfTypeVariables;
             this.throwsException = throwsException;
+            typeVariableArray = initTypeVariables();
+        }
+
+        private TypeVariableName[] initTypeVariables() {
+            final List<TypeVariableName> typeVariables = new ArrayList<>();
+            for (int i = 1; i < noOfTypeVariables + 1; i++) {
+                TypeVariableName typeVariableName = TypeVariableName.get("T" + i);
+                typeVariables.add(typeVariableName);
+            }
+            return typeVariables.toArray(new TypeVariableName[0]);
         }
 
         public TypeSpec.Builder getBuilder() {
             return builder;
         }
 
-        public int getNoOfFunctionParams() {
-            return noOfFunctionParams;
+        public int getNoOfTypeVariables() {
+            return noOfTypeVariables;
         }
 
         public boolean isThrowsException() {
             return throwsException;
+        }
+
+        public TypeVariableName[] getTypeVarArray() {
+            return typeVariableArray;
+        }
+
+        public TypeVariableName getTypeVariable(int paramOneBased) {
+            return typeVariableArray[paramOneBased - 1];
         }
     }
 
@@ -51,6 +73,9 @@ public abstract class TypeFragment {
     }
 
     public void prepare() {}
-    public abstract void work(int parameterOneBased, TypeVariableName typeVariableName);
-    public abstract void finish();
+
+    public abstract void work(int parameterOneBased);
+
+    public void finish() {
+    }
 }

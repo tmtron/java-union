@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.shared;
+package com.tmtron.java.union.lib;
 
-import com.squareup.javapoet.TypeVariableName;
-
-public class Util {
-
-    public static final String ROOT_PACKAGE_NAME = "com.tmtron.java.union.lib";
-    public static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
-
-    public static final int MIN_INDEX_FOR_UNIONS = 2;
+/**
+ * A functional interface (callback) that accepts a single value.
+ *
+ * @param <T> the value type
+ */
+public interface Consumer<T> {
+    /**
+     * Consume the given value.
+     *
+     * @param t the value
+     */
+    void accept(T t);
 }

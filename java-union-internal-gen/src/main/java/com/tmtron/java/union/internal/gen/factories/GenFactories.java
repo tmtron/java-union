@@ -13,45 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.functions;
+package com.tmtron.java.union.internal.gen.factories;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.FileWriter;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 import com.tmtron.java.union.internal.gen.shared.Util;
+import com.tmtron.java.union.internal.gen.unions.GenUnions;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.lang.model.element.Modifier;
 
-public class GenFunctions extends FileWriter {
+public class GenFactories extends FileWriter {
 
     private final List<TypeFragment> fragments = new ArrayList<>();
-    private final Map<Integer, TypeSpec> generatedClasses = new HashMap<>();
+    private final GenUnions genUnions;
 
-    public GenFunctions(final Path outputDir, final boolean throwsException) {
-        super(outputDir, throwsException, Util.ROOT_PACKAGE_NAME + ".functions", 0);
-    }
-
-    public TypeSpec getGeneratedClass(int noOfTypeVariables) {
-        if (generatedClasses.isEmpty()) throw new RuntimeException("generatedClasses not written yet!");
-        return generatedClasses.get(noOfTypeVariables);
+    public GenFactories(final Path outputDir, final boolean throwsException, final GenUnions genUnions) {
+        super(outputDir, throwsException, Util.ROOT_PACKAGE_NAME, Util.MIN_INDEX_FOR_UNIONS);
+        this.genUnions = genUnions;
     }
 
     @Override
     protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean throwsException) {
-        final String classNameStr;
-        if (throwsException) {
-            classNameStr = "FunctionEx" + noOfTypeVariables;
-        } else {
-            classNameStr = "Function" + noOfTypeVariables;
-        }
+        final String classNameStr = "Union" + noOfTypeVariables + "Factory";
 
         ClassName className = ClassName.get(packageName, classNameStr);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.interfaceBuilder(className)
@@ -60,18 +49,15 @@ public class GenFunctions extends FileWriter {
         initFragments(typeSpecBuilder, noOfTypeVariables);
         processFragments(noOfTypeVariables);
 
-        TypeSpec result = typeSpecBuilder.build();
-        generatedClasses.put(noOfTypeVariables, result);
-        return result;
+        return typeSpecBuilder.build();
     }
 
     private void processFragments(int currentParam) {
         fragments.forEach(TypeFragment::prepare);
         fragments.forEach(fragment -> {
-                    for (int i = 1; i < currentParam+1; i++) {
-                        TypeVariableName typeVariableName = TypeVariableName.get("T" + i);
-                        fragment.work(i);
-                    }
+            for (int i = 1; i < currentParam + 1; i++) {
+                fragment.work(i);
+            }
         });
         fragments.forEach(TypeFragment::finish);
     }
@@ -80,9 +66,9 @@ public class GenFunctions extends FileWriter {
         fragments.clear();
         final TypeFragment.Config config = new TypeFragment.Config(result, currentParam, throwsException);
 
-        fragments.add(new ClassTypeVariables(config));
         fragments.add(new JavaDoc(config));
-        fragments.add(new ApplyMethod(config));
+        fragments.add(new ClassTypeVariables(config));
+        fragments.add(new Methods(config, genUnions));
     }
 
 }
