@@ -17,7 +17,6 @@ package com.tmtron.java.union.internal.gen.unions;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeSpec;
-import com.tmtron.java.union.internal.gen.functions.GenFunctions;
 import com.tmtron.java.union.internal.gen.shared.FileWriter;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 import com.tmtron.java.union.internal.gen.shared.Util;
@@ -33,12 +32,10 @@ import javax.lang.model.element.Modifier;
 public class GenUnions extends FileWriter {
 
     private final List<TypeFragment> fragments = new ArrayList<>();
-    private final GenFunctions genFunctions; // TODO: unused - remove?
     private final Map<Integer, TypeSpec> generatedClasses = new HashMap<>();
 
-    public GenUnions(final Path outputDir, final boolean isNullable, final GenFunctions genFunctions) {
+    public GenUnions(final Path outputDir, final boolean isNullable) {
         super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME, Util.MIN_INDEX_FOR_UNIONS);
-        this.genFunctions = genFunctions;
     }
 
     public TypeSpec getGeneratedClass(int noOfTypeVariables) {
