@@ -17,7 +17,6 @@ package com.tmtron.java.union.internal.gen.functions;
 
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.FileWriter;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 import com.tmtron.java.union.internal.gen.shared.Util;

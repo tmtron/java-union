@@ -18,11 +18,11 @@ package com.tmtron.java.union.internal.gen;
 import com.tmtron.java.union.internal.gen.factories.GenFactories;
 import com.tmtron.java.union.internal.gen.functions.GenFunctions;
 import com.tmtron.java.union.internal.gen.unions.GenUnions;
+import com.tmtron.java.union.internal.gen.unionsimpl.unions.GenUnionsImpl;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 
 public class Main {
 
@@ -50,6 +50,8 @@ public class Main {
         final GenUnions genUnions = new GenUnions(outputDir, isNullable);
         genUnions.writeFiles();
         new GenFactories(outputDir, isNullable, genUnions).writeFiles();
+
+        new GenUnionsImpl(outputDir, isNullable, genUnions).writeFiles();
     }
 
 }

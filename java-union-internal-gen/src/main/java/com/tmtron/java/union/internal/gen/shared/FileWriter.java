@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 public abstract class FileWriter {
 
     protected final String packageName;
-    private final int minIndex;
+    protected final int minIndex;
     private final Path outputDir;
     protected final boolean isNullable;
     private boolean filesWritten;
@@ -54,8 +54,8 @@ public abstract class FileWriter {
         filesWritten = true;
     }
 
-    private void writeFile(int currentParam) throws IOException {
-        JavaFile.builder(packageName, getFunctionFileSpec(currentParam, isNullable))
+    protected void writeFile(int unionArity) throws IOException {
+        JavaFile.builder(packageName, getFunctionFileSpec(unionArity, isNullable))
                 .skipJavaLangImports(true)
                 .addFileComment(getFileHeader())
                 .build()

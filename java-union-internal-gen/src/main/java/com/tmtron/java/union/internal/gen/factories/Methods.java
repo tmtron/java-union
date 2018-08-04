@@ -36,7 +36,7 @@ class Methods extends TypeFragment {
     }
 
     @Override
-    public void work(int parameterOneBased) {
+    public void work(Integer parameterOneBased) {
         final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
         final MethodSpec.Builder executeSpec = MethodSpec.methodBuilder("element" + parameterOneBased);
         final StringBuilder javaDoc = new StringBuilder();

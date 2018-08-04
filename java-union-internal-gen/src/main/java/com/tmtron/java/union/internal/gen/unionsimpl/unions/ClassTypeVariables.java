@@ -13,19 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.lib;
+package com.tmtron.java.union.internal.gen.unionsimpl.unions;
 
-/**
- * A functional interface (callback) that accepts a single value.
- *
- * @param <T> the value type
- */
-public interface ConsumerEx<T> {
-    /**
-     * Consume the given value.
-     *
-     * @param t the value
-     * @throws Exception on error
-     */
-    void accept(T t) throws Exception;
+import com.squareup.javapoet.TypeVariableName;
+
+class ClassTypeVariables extends TypeFragment4Impl {
+
+    public ClassTypeVariables(final ImplConfig implConfig) {
+        super(implConfig);
+    }
+
+    @Override
+    public void work(final ImplWorkParams context) {
+        final TypeVariableName typeVariableName = config.getTypeVariable(context.implementationIndex);
+        config.getBuilder().addTypeVariable(typeVariableName);
+    }
+
+    @Override
+    public void finish() {
+        config.getBuilder().addSuperinterface(getUnionInterfaceType());
+    }
+
 }

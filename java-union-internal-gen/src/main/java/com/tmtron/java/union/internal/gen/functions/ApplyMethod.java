@@ -44,7 +44,7 @@ class ApplyMethod extends TypeFragment {
     }
 
     @Override
-    public void work(int parameterOneBased) {
+    public void work(Integer parameterOneBased) {
         final String paramName = "p"+parameterOneBased;
         javaDoc.append("\n@param ");
         javaDoc.append(paramName);

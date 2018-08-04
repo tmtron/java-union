@@ -15,79 +15,10 @@
  */
 package com.tmtron.java.union.internal.gen.shared;
 
-import com.squareup.javapoet.ParameterSpec;
-import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-public abstract class TypeFragment {
-
-    public static class Config {
-        private final TypeSpec.Builder builder;
-        private final int noOfTypeVariables;
-        private final boolean isNullable;
-        private final TypeVariableName[] typeVariableArray;
-
-        public Config(final TypeSpec.Builder builder, final int noOfTypeVariables, final boolean isNullable) {
-            this.builder = builder;
-            this.noOfTypeVariables = noOfTypeVariables;
-            this.isNullable = isNullable;
-            typeVariableArray = initTypeVariables();
-        }
-
-        private TypeVariableName[] initTypeVariables() {
-            final List<TypeVariableName> typeVariables = new ArrayList<>();
-            for (int i = 1; i < noOfTypeVariables + 1; i++) {
-                TypeVariableName typeVariableName = TypeVariableName.get("T" + i);
-                typeVariables.add(typeVariableName);
-            }
-            return typeVariables.toArray(new TypeVariableName[0]);
-        }
-
-        public TypeSpec.Builder getBuilder() {
-            return builder;
-        }
-
-        public int getNoOfTypeVariables() {
-            return noOfTypeVariables;
-        }
-
-        public boolean isNullable() {
-            return isNullable;
-        }
-
-        public Class<?> getNullAnnotationClass() {
-            return isNullable ? Nullable.class : Nonnull.class;
-        }
-
-        public TypeVariableName[] getTypeVarArray() {
-            return typeVariableArray;
-        }
-
-        public TypeVariableName getTypeVariable(int paramOneBased) {
-            return typeVariableArray[paramOneBased - 1];
-        }
-    }
-
-    protected final Config config;
+public abstract class TypeFragment extends TypeFragmentBase<Integer> {
 
     protected TypeFragment(final Config config) {
-        this.config = config;
+        super(config);
     }
 
-    public void prepare() {}
-
-    public abstract void work(int parameterOneBased);
-
-    protected void addNullAnnotation(final ParameterSpec.Builder paramBuilder) {
-        paramBuilder.addAnnotation(config.getNullAnnotationClass());
-    }
-
-    public void finish() {
-    }
 }

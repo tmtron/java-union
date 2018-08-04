@@ -13,42 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tmtron.java.union.internal.gen.functions;
+package com.tmtron.java.union.internal.gen.unionsimpl.unions;
 
 import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 
-import static com.tmtron.java.union.internal.gen.shared.Util.RESULT_TYPE_VARIABLE;
-
-class JavaDoc extends TypeFragment {
+class JavaDoc extends TypeFragment4Impl {
 
     private final StringBuilder javaDoc = new StringBuilder();
 
-    JavaDoc(final Config config) {
-        super(config);
+    JavaDoc(final ImplConfig implConfig) {
+        super(implConfig);
     }
 
     @Override
     public void prepare() {
-        javaDoc.append("A functional interface (callback) that returns a value.");
+        javaDoc.append("Implementation for Union");
+        javaDoc.append(config.getNoOfTypeVariables());
     }
 
     @Override
-    public void work(Integer parameterOneBased) {
-        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
+    public void work(final ImplWorkParams context) {
+        final TypeVariableName typeVariableName = config.getTypeVariable(context.implementationIndex);
         javaDoc.append("\n@param <");
         javaDoc.append(typeVariableName.name);
-        javaDoc.append("> the value type element ");
-        javaDoc.append(parameterOneBased);
+        javaDoc.append("> type of element ");
+        javaDoc.append(context.implementationIndex);
+        if (context.implementationIndex == context.unionIndex) {
+            javaDoc.append(" for this implementation class ");
+        }
     }
 
     @Override
     public void finish() {
-        javaDoc.append("\n@param <");
-        javaDoc.append(RESULT_TYPE_VARIABLE.name);
-        javaDoc.append("> the result type");
         javaDoc.append("\n");
-
         config.getBuilder().addJavadoc(javaDoc.toString());
     }
 }

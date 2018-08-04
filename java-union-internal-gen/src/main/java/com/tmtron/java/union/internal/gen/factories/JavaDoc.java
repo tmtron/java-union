@@ -33,7 +33,7 @@ class JavaDoc extends TypeFragment {
     }
 
     @Override
-    public void work(int parameterOneBased) {
+    public void work(Integer parameterOneBased) {
         final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
         javaDoc.append("\n@param <");
         javaDoc.append(typeVariableName.name);
