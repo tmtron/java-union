@@ -21,9 +21,21 @@ repositories {
 
 license {
     header rootProject.file('LICENSE_HEADER')
-    strictCheck true
+    headerDefinitions {
+        TMTRON_DOUBLESLASH_STYLE {
+            firstLine = "//"
+            endLine   = "//"
+            firstLineDetectionPattern = "//"
+            lastLineDetectionPattern  = "//"
+            beforeEachLine = '// '
+            allowBlankLines = false
+            skipLinePattern = "//"
+            isMultiline = false
+        }
+    }
     mapping {
-        java = 'SLASHSTAR_STYLE'
+        // NOTE: the DOUBLESLASH_STYLE does not work, because it has an extra empty line at the end
+        java = 'TMTRON_DOUBLESLASH_STYLE'
     }
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
 }

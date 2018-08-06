@@ -13,21 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-package com.tmtron.java.union.internal.gen.factories;
+package com.tmtron.java.union.lib.j8;
 
-import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.shared.TypeFragment;
+import javax.annotation.Nullable;
 
-class ClassTypeVariables extends TypeFragment {
-
-    ClassTypeVariables(final Config config) {
-        super(config);
-    }
-
-    @Override
-    public void work(Integer parameterOneBased) {
-        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
-        config.getBuilder().addTypeVariable(typeVariableName);
-    }
-
+/**
+ * A functional interface (callback) that accepts a single value.
+ *
+ * @param <T> the value type
+ */
+public interface ConsumerNullable<T> {
+    /**
+     * Consume the given value.
+     *
+     * @param t the value
+     * @throws Exception on error
+     */
+    void accept(@Nullable T t) throws Exception;
 }

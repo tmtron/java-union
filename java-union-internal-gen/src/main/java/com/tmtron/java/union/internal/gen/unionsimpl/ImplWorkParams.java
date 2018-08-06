@@ -13,21 +13,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-package com.tmtron.java.union.internal.gen.factories;
+package com.tmtron.java.union.internal.gen.unionsimpl;
 
-import com.squareup.javapoet.TypeVariableName;
-import com.tmtron.java.union.internal.gen.shared.TypeFragment;
+class ImplWorkParams {
+    final int unionIndex;
+    final int implementationIndex;
 
-class ClassTypeVariables extends TypeFragment {
-
-    ClassTypeVariables(final Config config) {
-        super(config);
+    /**
+     * Eg. for Union4Imp3, unionIndex=4 and implementationIndex=2
+     */
+    public ImplWorkParams(final int unionIndex, final int implementationIndex) {
+        this.unionIndex = unionIndex;
+        this.implementationIndex = implementationIndex;
     }
-
-    @Override
-    public void work(Integer parameterOneBased) {
-        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
-        config.getBuilder().addTypeVariable(typeVariableName);
-    }
-
 }
