@@ -2,42 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76091e07-0634-4d52-99f0-0b366fc914c4" name="Default" comment="* generating Union and Union Factory interfaces&#10;* fixed comments, so that the licensing header checks work">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/ClassTypeVariables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/ImplWorkParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union2Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union2FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union3Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union3FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union4Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union4FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union5Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union5FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union6Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union6FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union7Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union7FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union8Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union8FactoryNullable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union9Factory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/factories/Union9FactoryNullable.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/j8/Consumer.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/j8/ConsumerNullable.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../java-union-lib/src/main/java/com/tmtron/java/union/lib/j8/ObjectsJ8.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../java-union-lib/src/test/java/com/tmtron/java/union/lib/BasicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/ClassTypeVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/ClassTypeVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/GenFactories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/GenFactories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/JavaDoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/JavaDoc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ApplyMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ApplyMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ClassTypeVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ClassTypeVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/GenFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/GenFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/JavaDoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/JavaDoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/EqualsHashCodeHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/EqualsHashCodeHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/ExecuteMethodHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/ExecuteMethodHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/FileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/FileWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/TypeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/TypeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/TypeFragmentBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/TypeFragmentBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/shared/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/ClassTypeVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/ClassTypeVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/GenUnions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/GenUnions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/JavaDoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/JavaDoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unions/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/ClassTypeVariables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/GenUnionsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/GenUnionsImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/ImplWorkParams.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/JavaDoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/JavaDoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/TypeFragment4Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/TypeFragment4Impl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/consumers/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/j8/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/consumers/ConsumerNullable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/j8/ConsumerNullable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java-union-lib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../java-union-lib/build.gradle" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -111,7 +98,7 @@
           <entry key="class" value="2" />
           <entry key="gradle" value="1" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="193" />
+          <entry key="java" value="196" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
@@ -119,7 +106,7 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="193" />
+          <entry key="JAVA" value="196" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
@@ -127,14 +114,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
-          <entry key="java" value="4621" />
-          <entry key="txt" value="132" />
+          <entry key="java" value="4624" />
+          <entry key="txt" value="338" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4621" />
-          <entry key="PLAIN_TEXT" value="144" />
+          <entry key="JAVA" value="4624" />
+          <entry key="PLAIN_TEXT" value="350" />
         </counts>
       </usages-collector>
     </session>
@@ -153,30 +140,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="270">
               <caret line="81" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/impl/Union2Imp2.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/impl/Union2NullableImp2.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/j8/ObjectsJ8.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="34" column="38" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="38" />
+            <state relative-caret-position="511">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -680,7 +657,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/ClassTypeVariables.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/GenFactories.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/JavaDoc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ApplyMethod.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/ClassTypeVariables.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/functions/GenFunctions.java" />
@@ -702,6 +678,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/Methods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/unions/TypeFragment4Impl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/Methods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java" />
       </list>
     </option>
   </component>
@@ -802,19 +779,6 @@
             <path>
               <item name="java-union-internal-gen" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-union-internal-gen" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-              <item name="unions" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="tmtron" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="union" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-union-internal-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-union-internal-gen" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -896,7 +860,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533542393244" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533543954534" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -1104,14 +1068,20 @@
       <option name="project" value="LOCAL" />
       <updated>1533307668175</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="* moved consumers to package j8&#10;* renamed package unionsimpl.unions to unionsimpl&#10;* Union implemenatations now respect nullable&#10;* changed license header style to match java-poet">
+      <created>1533542817256</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1533542817256</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="4" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49833333" visible="true" weight="0.23933902" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49833333" visible="true" weight="0.23933902" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1119,13 +1089,13 @@
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32925472" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.42346367" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.23581758" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.26807564" />
       <window_info anchor="bottom" id="Build" order="9" weight="0.32925472" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1133,11 +1103,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" sideWeight="0.49610677" visible="true" weight="0.23240939" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" sideWeight="0.67164177" visible="true" weight="0.14978679" />
+      <window_info anchor="right" id="Gradle" order="5" sideWeight="0.67173254" visible="true" weight="0.14978679" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" show_stripe_button="false" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Structure" order="9" sideWeight="0.3283582" side_tool="true" visible="true" weight="0.14978679" />
+      <window_info anchor="right" id="Structure" order="9" sideWeight="0.32826748" side_tool="true" visible="true" weight="0.14978679" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1150,7 +1120,8 @@
     <MESSAGE value="moved some files to shared package" />
     <MESSAGE value="* generating Union and Union Factory interfaces&#10;* fixed comments, so that the licensing header checks work" />
     <MESSAGE value="some cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="some cleanup" />
+    <MESSAGE value="* moved consumers to package j8&#10;* renamed package unionsimpl.unions to unionsimpl&#10;* Union implemenatations now respect nullable&#10;* changed license header style to match java-poet" />
+    <option name="LAST_COMMIT_MESSAGE" value="* moved consumers to package j8&#10;* renamed package unionsimpl.unions to unionsimpl&#10;* Union implemenatations now respect nullable&#10;* changed license header style to match java-poet" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1163,7 +1134,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java</url>
-          <line>62</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -1241,20 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/Union2Nullable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/Union2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/lib/j8/ConsumerNullable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1318,16 +1275,6 @@
           <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
           <folding>
             <element signature="e#0#1606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#2831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1534,15 +1481,50 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/impl/Union2Imp2.java">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/impl/Union2NullableImp2.java">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/Union2Nullable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/unions/com/tmtron/java/union/lib/Union2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/unionsimpl/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="270">
           <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmtron/java/union/internal/gen/factories/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>

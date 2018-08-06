@@ -23,7 +23,6 @@ import com.squareup.javapoet.TypeVariableName;
 import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 import com.tmtron.java.union.internal.gen.unions.GenUnions;
 
-import javax.annotation.Nullable;
 import javax.lang.model.element.Modifier;
 
 class Methods extends TypeFragment {
@@ -53,9 +52,7 @@ class Methods extends TypeFragment {
         javaDoc.append(" the value of the union element ");
         javaDoc.append(parameterOneBased);
 
-        // TODO: add nullable annotations!
-        ParameterSpec.Builder paramBuilder = ParameterSpec.builder(typeVariableName, paramName)
-                .addAnnotation(Nullable.class);
+        ParameterSpec.Builder paramBuilder = ParameterSpec.builder(typeVariableName, paramName);
         executeSpec.addParameter(paramBuilder.build());
 
         javaDoc.append("\n");
