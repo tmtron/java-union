@@ -13,21 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-package com.tmtron.java.union.internal.gen.shared;
+package com.tmtron.java.union.internal.gen.factoriesimpl.factories;
 
 import com.squareup.javapoet.TypeVariableName;
+import com.tmtron.java.union.internal.gen.shared.TypeFragment;
 
-public class Util {
+class ClassTypeVariables extends TypeFragment {
 
-    public static final String PACKAGE_NAME_ROOT = "com.tmtron.java.union.lib";
-    public static final String PACKAGE_NAME_UNIONS_IMPLEMENTATION = PACKAGE_NAME_ROOT + ".impl";
-    public static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
+    ClassTypeVariables(final Config config) {
+        super(config);
+    }
 
-    public static final int MIN_INDEX_FOR_UNIONS = 2;
-    public static final int MAX_INDEX_FOR_UNIONS = 9;
-
-    public static String getNullableIdentifierNameOrBlank(final boolean isNullable) {
-        return (isNullable) ? "Nullable" : "";
+    @Override
+    public void work(Integer parameterOneBased) {
+        final TypeVariableName typeVariableName = config.getTypeVariable(parameterOneBased);
+        config.getBuilder().addTypeVariable(typeVariableName);
     }
 
 }

@@ -17,12 +17,14 @@ package com.tmtron.java.union.internal.gen.shared;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
+import com.squareup.javapoet.TypeVariableName;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -75,8 +77,13 @@ public abstract class FileWriter {
                 .collect(Collectors.joining("\n"));
     }
 
-    protected String getNullableIdentifierNameOrBlank(final boolean isNullable) {
-        return (isNullable) ? "Nullable" : "";
+    protected List<TypeVariableName> getTypeVars(final int noOfTypeVars) {
+        final List<TypeVariableName> typeVariables = new ArrayList<>();
+        for (int i = 1; i < noOfTypeVars + 1; i++) {
+            TypeVariableName typeVariableName = TypeVariableName.get("T" + i);
+            typeVariables.add(typeVariableName);
+        }
+        return typeVariables;
     }
 
     protected abstract TypeSpec getFunctionFileSpec(int currentParam, boolean isNullable);

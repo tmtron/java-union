@@ -35,7 +35,7 @@ public class GenUnions extends FileWriter {
     private final Map<Integer, TypeSpec> generatedClasses = new HashMap<>();
 
     public GenUnions(final Path outputDir, final boolean isNullable) {
-        super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME, Util.MIN_INDEX_FOR_UNIONS);
+        super(outputDir, isNullable, Util.PACKAGE_NAME_ROOT, Util.MIN_INDEX_FOR_UNIONS);
     }
 
     public TypeSpec getGeneratedClass(int noOfTypeVariables) {
@@ -49,7 +49,7 @@ public class GenUnions extends FileWriter {
 
     @Override
     protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean isNullable) {
-        final String classNameStr = "Union" + noOfTypeVariables + getNullableIdentifierNameOrBlank(isNullable);
+        final String classNameStr = "Union" + noOfTypeVariables + Util.getNullableIdentifierNameOrBlank(isNullable);
 
         ClassName className = ClassName.get(packageName, classNameStr);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.interfaceBuilder(className)

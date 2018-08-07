@@ -25,7 +25,9 @@ import com.tmtron.java.union.internal.gen.unions.GenUnions;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.lang.model.element.Modifier;
 
@@ -34,9 +36,10 @@ public class GenUnionsImpl extends FileWriter {
     private final List<TypeFragment4Impl> fragments = new ArrayList<>();
     private final GenUnions genUnions;
     private int implementationIndex;
+    private final Map<String, ClassName> generatedClassNames = new HashMap<>();
 
     public GenUnionsImpl(final Path outputDir, final boolean isNullable, final GenUnions genUnions) {
-        super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME+".impl", Util.MIN_INDEX_FOR_UNIONS);
+        super(outputDir, isNullable, Util.PACKAGE_NAME_UNIONS_IMPLEMENTATION, Util.MIN_INDEX_FOR_UNIONS);
         this.genUnions = genUnions;
     }
 
@@ -48,12 +51,23 @@ public class GenUnionsImpl extends FileWriter {
         }
     }
 
+    private String getMapKey(int unionIndex, int implementationIndex) {
+        return unionIndex + "-" + implementationIndex;
+    }
+
+    public ClassName getGeneratedClassName(int unionIndex, int implementationIndex) {
+        final String mapKey = getMapKey(unionIndex, implementationIndex);
+        return generatedClassNames.get(mapKey);
+    }
+
     @Override
     protected TypeSpec getFunctionFileSpec(int unionIndex, boolean isNullable) {
         final String classNameStr =
-                "Union"+unionIndex + getNullableIdentifierNameOrBlank(isNullable) + "Imp"+ implementationIndex;
+                "Union" + unionIndex + Util.getNullableIdentifierNameOrBlank(isNullable) + "Imp" + implementationIndex;
 
         ClassName className = ClassName.get(packageName, classNameStr);
+        final String mapKey = getMapKey(unionIndex, implementationIndex);
+        generatedClassNames.put(mapKey, className);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.classBuilder(className)
                 .addModifiers(Modifier.FINAL);
 

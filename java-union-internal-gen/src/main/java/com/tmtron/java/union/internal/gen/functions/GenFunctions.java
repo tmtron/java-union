@@ -35,7 +35,7 @@ public class GenFunctions extends FileWriter {
     private final Map<Integer, TypeSpec> generatedClasses = new HashMap<>();
 
     public GenFunctions(final Path outputDir, final boolean isNullable) {
-        super(outputDir, isNullable, Util.ROOT_PACKAGE_NAME + ".functions", 0);
+        super(outputDir, isNullable, Util.PACKAGE_NAME_ROOT + ".functions", 0);
     }
 
     public TypeSpec getGeneratedClass(int noOfTypeVariables) {
@@ -45,7 +45,7 @@ public class GenFunctions extends FileWriter {
 
     @Override
     protected TypeSpec getFunctionFileSpec(int noOfTypeVariables, boolean isNullable) {
-        final String classNameStr = "Function" + noOfTypeVariables + getNullableIdentifierNameOrBlank(isNullable);
+        final String classNameStr = "Function" + noOfTypeVariables + Util.getNullableIdentifierNameOrBlank(isNullable);
 
         ClassName className = ClassName.get(packageName, classNameStr);
         TypeSpec.Builder typeSpecBuilder = TypeSpec.interfaceBuilder(className)
