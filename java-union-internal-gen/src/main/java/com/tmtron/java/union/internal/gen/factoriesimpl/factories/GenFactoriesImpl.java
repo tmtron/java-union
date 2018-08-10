@@ -42,7 +42,7 @@ public class GenFactoriesImpl extends FileWriter {
 
     public GenFactoriesImpl(final Path outputDir, final boolean isNullable, final GenUnions genUnions,
                             final GenUnionsImpl genUnionsImpl, final GenFactories genFactories) {
-        super(outputDir, isNullable, Util.PACKAGE_NAME_ROOT + ".impl", Util.MIN_INDEX_FOR_UNIONS);
+        super(outputDir, isNullable, Util.PACKAGE_NAME_UNIONS_IMPLEMENTATION, Util.MIN_INDEX_FOR_UNIONS);
         this.genUnions = genUnions;
         this.genUnionsImpl = genUnionsImpl;
         this.genFactories = genFactories;
