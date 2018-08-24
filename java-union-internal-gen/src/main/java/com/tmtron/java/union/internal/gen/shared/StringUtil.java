@@ -15,16 +15,12 @@
 //
 package com.tmtron.java.union.internal.gen.shared;
 
-import com.squareup.javapoet.TypeVariableName;
+public class StringUtil {
+    public static boolean stringIsNotEmpty(final String input) {
+        return input == null || input.isEmpty();
+    }
 
-public class Util {
-
-    public static final String PACKAGE_NAME_ROOT = "com.tmtron.java.union.lib";
-    public static final String PACKAGE_NAME_FACTORIES = PACKAGE_NAME_ROOT + ".factories";
-    public static final String PACKAGE_NAME_IMPLEMENTATION = PACKAGE_NAME_ROOT + ".impl";
-    public static final String PACKAGE_NAME_FUNCTIONS = PACKAGE_NAME_ROOT + ".functions";
-    public static final TypeVariableName RESULT_TYPE_VARIABLE = TypeVariableName.get("R");
-
-    public static final int MIN_INDEX_FOR_UNIONS = 2;
-    public static final int MAX_INDEX_FOR_UNIONS = 9;
+    public static String stringOrDefault(final String input, final String defaultString) {
+        return (stringIsNotEmpty(input)) ? input : defaultString;
+    }
 }
